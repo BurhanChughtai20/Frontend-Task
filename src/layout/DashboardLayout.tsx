@@ -1,13 +1,17 @@
-import type { ReactNode } from "react"
-// import Sidebar from "../components/dashboard/Sidebar"
+import type { ReactNode } from "react" 
+import { SidebarInset, SidebarProvider, SidebarTrigger } from "../components/ui/sidebar"
+import { AppSidebar } from "../components/dashboard/AppSidebar"
 
 type Props = { children: ReactNode }
 
 export default function DashboardLayout({ children }: Props) {
   return (
-    <div className="flex">
-      {/* <Sidebar /> */}
-      <main className="flex-1">{children}</main>
-    </div>
+    <SidebarProvider>
+      <AppSidebar />
+      <SidebarInset>
+        <SidebarTrigger />
+        {children}
+      </SidebarInset>
+    </SidebarProvider>
   )
 }

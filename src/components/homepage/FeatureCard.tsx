@@ -21,7 +21,7 @@ const classes = {
   mainContainer: "relative z-10 max-w-7xl flex flex-col items-center justify-center mx-auto px-4 sm:px-6 lg:px-8",
   headerContainer: "text-center mb-12 sm:mb-16 md:mb-20",
   titleBase: "text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight",
-  descriptionContainer: "text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto",
+  descriptionContainer: "text-base sm:text-lg md:text-xl text-gray-800 max-w-3xl mx-auto",
   capabilitiesGrid: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 w-full",
   capabilityCard: "group relative p-6 sm:p-8 rounded-xl bg-gradient-to-br transition-all duration-300 overflow-hidden border hover:shadow-lg",
   cardBackground: "absolute inset-0 bg-gradient-to-br from-blue-800/0 to-purple-500/0 group-hover:from-gray-800/10 group-hover:to-white-700/10 transition-all duration-300",
@@ -33,7 +33,7 @@ const classes = {
   ctaContainer: "mt-12 sm:mt-16 md:mt-20 text-center",
   ctaText: "text-gray-400 text-base sm:text-lg mb-6",
   ctaButtonWrapper: "inline-block",
-  ctaButton: "text-base sm:text-xl font-semibold px-8 sm:px-10 py-3 sm:py-4 hover:shadow-lg transition-shadow duration-300 flex items-center space-x-2",
+  ctaButton: "text-sm sm:text-sm font-semibold px-8 sm:px-10 py-3 sm:py-4 hover:shadow-lg transition-shadow duration-300 flex items-center space-x-2",
 };
 
 const containerVariants = {
