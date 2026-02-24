@@ -35,7 +35,7 @@ const footerSections: FooterSection[] = [
 ];
 
 const classes = {
-  wrapper: "w-full bg-gray-50 text-gray-800 mt-10",
+  wrapper: "w-full bg-white text-gray-800 mt-10",
   container: "max-w-screen-xl mx-auto px-4 py-12 sm:py-16",
   logoWrapper: "flex flex-col md:flex-row md:justify-between md:items-center mb-10 text-center md:text-left",
   logoLink: "flex items-center justify-center md:justify-start mb-6 md:mb-0",
