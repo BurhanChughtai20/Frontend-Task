@@ -1,0 +1,44 @@
+{
+  "titles": [
+    "Super charge Your Restaurant Operations"
+  ],
+  "descriptions": [
+    "Streamline every aspect of your restaurant with our comprehensive management system. From inventory to customer service, we've got you covered."
+  ],
+  "capabilities": [
+    {
+      "icon": "TrendingUp",
+      "title": "Boost Revenue",
+      "description": "Increase sales by 40% with optimized inventory and smart pricing strategies."
+    },
+    {
+      "icon": "Users",
+      "title": "Better Customer Experience",
+      "description": "Deliver exceptional service with automated ordering and personalized recommendations."
+    },
+    {
+      "icon": "Zap",
+      "title": "Lightning Fast Operations",
+      "description": "Process orders 10x faster with our intuitive kitchen display system."
+    },
+    {
+      "icon": "Clock",
+      "title": "Save Time",
+      "description": "Reduce manual work by 80% and focus on what matters - great food and service."
+    },
+    {
+      "icon": "BarChart3",
+      "title": "Data-Driven Insights",
+      "description": "Make informed decisions with real-time analytics and comprehensive reporting."
+    },
+    {
+      "icon": "ChefHat",
+      "title": "Complete Menu Control",
+      "description": "Easily manage menus, recipes, and dietary information across all locations."
+    }
+  ],
+  "cta": {
+    "text": "Ready to transform your restaurant?",
+    "buttonText": "Get Started Today!"
+  }
+}

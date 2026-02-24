@@ -1,12 +1,14 @@
-import type { FooterLink, FooterSection } from "../types/footer";
-
-const socialLinks: FooterLink[] = [
-  { label: "Facebook", href: "#" },
-  { label: "Discord", href: "#" },
-  { label: "Twitter", href: "#" },
-  { label: "GitHub", href: "#" },
-  { label: "Dribbble", href: "#" },
-];
+import React from "react";
+import { Link } from "react-router-dom";
+import { Facebook, Twitter, Dribbble, Github, MessageCircle } from "lucide-react";
+import type {  FooterSection } from "../types/footer";
+const SOCIAL_ICON_MAP: Record<string, React.ElementType> = {
+  Facebook: Facebook,
+  Twitter: Twitter,
+  Dribbble: Dribbble,
+  GitHub: Github,
+  Discord: MessageCircle,
+};
 
 const footerSections: FooterSection[] = [
   {
@@ -33,54 +35,60 @@ const footerSections: FooterSection[] = [
 ];
 
 const classes = {
-  wrapper: "w-full bg-white text-black mt-10",
-  container: "max-w-screen-xl mx-auto px-1 py-8",
-  logoWrapper: "flex flex-col md:flex-row md:justify-between md:items-center mb-8 text-center md:text-left",
-  logoLink: "flex items-center justify-center md:justify-start mb-4 md:mb-0",
-  logoImg: "h-8 mr-3",
-  logoText: "text-2xl font-semibold",
-  socialWrapper: "flex justify-center md:justify-end space-x-4",
-  socialIcon: "w-5 h-5",
-  sectionGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center md:text-left mb-6",
-  sectionTitle: "font-semibold text-sm uppercase mb-3",
-  linkItem: "hover:underline mb-2 block",
-  hr: "my-6 border-gray-300",
-  bottomText: "text-center text-sm text-gray-600",
+  wrapper: "w-full bg-gray-50 text-gray-800 mt-10",
+  container: "max-w-screen-xl mx-auto px-4 py-12 sm:py-16",
+  logoWrapper: "flex flex-col md:flex-row md:justify-between md:items-center mb-10 text-center md:text-left",
+  logoLink: "flex items-center justify-center md:justify-start mb-6 md:mb-0",
+  logoImg: "h-10 mr-3",
+  logoText: "text-2xl font-bold tracking-wide text-gray-900",
+  socialWrapper: "flex justify-center md:justify-end space-x-5",
+  socialIcon: "text-gray-800 hover:text-blue-600 transition-transform duration-300 hover:scale-125",
+  sectionGrid: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center md:text-left mb-8",
+  sectionTitle: "font-semibold text-sm uppercase mb-4 tracking-wider text-gray-700",
+  linkItem: "hover:underline hover:text-blue-600 mb-2 block transition-colors duration-200",
+  hr: "my-8 border-gray-300",
+  bottomText: "text-center text-sm text-gray-500",
 };
 
-const Footer = () => {
+const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className={classes.wrapper}>
       <div className={classes.container}>
-        {/* Logo + Social */}
         <div className={classes.logoWrapper}>
-          <a href="/" className={classes.logoLink}>
+          <Link to="/" className={classes.logoLink}>
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               className={classes.logoImg}
               alt="Flowbite Logo"
             />
-            <span className={classes.logoText}>Flowbite</span>
-          </a>
+            <span className={classes.logoText}>LOGO</span>
+          </Link>
 
           <div className={classes.socialWrapper}>
-            {socialLinks.map((link) => (
-              <a key={link.label} href={link.href} className="text-gray-600 hover:text-gray-900">
-                <span className="sr-only">{link.label}</span>
-                <svg className={classes.socialIcon} fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" />
-                </svg>
+            {Object.entries(SOCIAL_ICON_MAP).map(([label, Icon]) => (
+              <a
+                key={label}
+                href="#" 
+                className={classes.socialIcon}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon className="w-6 h-6" />
               </a>
             ))}
           </div>
         </div>
 
-        {/* Footer Sections */}
         <div className={classes.sectionGrid}>
           {footerSections.map((section) => (
-            <div key={section.title}>
-              <h2 className={classes.sectionTitle}>{section.title}</h2>
-              <ul>
+            <nav key={section.title} aria-labelledby={`footer-${section.title}`}>
+              <h2 id={`footer-${section.title}`} className={classes.sectionTitle}>
+                {section.title}
+              </h2>
+              <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
                     <a href={link.href} className={classes.linkItem}>
@@ -89,15 +97,18 @@ const Footer = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
           ))}
         </div>
 
         <hr className={classes.hr} />
 
-        {/* Bottom Text */}
         <div className={classes.bottomText}>
-          © 2026 <a href="/" className="hover:underline">Flowbite™</a>. All Rights Reserved.
+          © {currentYear}{" "}
+          <a href="/" className="hover:underline text-gray-700 font-medium">
+            Flowbite™
+          </a>
+          . All Rights Reserved.
         </div>
       </div>
     </footer>

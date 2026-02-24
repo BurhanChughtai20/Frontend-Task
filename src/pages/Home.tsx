@@ -1,9 +1,10 @@
-import HeroSection from "../components/homepage/Hero"
+import { FeaturedCard, HeroSection } from "../shared"
 
 const Home = () => {
   return (
     <>
      <HeroSection/> 
+     <FeaturedCard/>
     </>
   )
 }

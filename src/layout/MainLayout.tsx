@@ -1,14 +1,14 @@
-import type { ReactNode } from "react"
-import NavbarComponent, { Footer } from "../shared/index"
+import type { ReactNode } from "react";
+import { Navbar, Footer } from "../shared";
 
-type Props = { children: ReactNode }
+type Props = { children: ReactNode };
 
 export default function MainLayout({ children }: Props) {
   return (
     <div>
-      <NavbarComponent />
+      <Navbar />
       <main>{children}</main>
       <Footer />
     </div>
-  )
+  );
 }

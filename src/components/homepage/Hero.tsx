@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import BannerImg from "../../../public/banner.svg";
+import BannerImg from "../../assets/banner.svg";
 import { UtensilsCrossed } from "lucide-react";
 import heroContent from "../../data/heroContent.json";
 import DynamicContent from "../DynamicContent";
