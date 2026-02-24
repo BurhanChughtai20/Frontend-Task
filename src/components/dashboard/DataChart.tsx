@@ -1,5 +1,5 @@
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { Bar, BarChart, CartesianGrid, XAxis, ResponsiveContainer } from "recharts"
 import {
   Card,
   CardContent,
@@ -39,9 +39,10 @@ const DataChart = ({ title, description, dataKey, barColor }: DataChartProps) =>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig}>
-          <BarChart accessibilityLayer data={chartData}>
+      <CardContent className="h-64"> {/* Ensure fixed height */}
+        {/* Keep ChartContainer to provide context for ChartTooltipContent */}
+        <ChartContainer config={chartConfig} className="w-full h-full">
+          <BarChart data={chartData} width={500} height={250}>
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="month"
@@ -50,10 +51,7 @@ const DataChart = ({ title, description, dataKey, barColor }: DataChartProps) =>
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
+            <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
             <Bar dataKey={dataKey} fill={barColor} radius={8} />
           </BarChart>
         </ChartContainer>
@@ -70,4 +68,4 @@ const DataChart = ({ title, description, dataKey, barColor }: DataChartProps) =>
   )
 }
 
-export default DataChart;
+export default DataChart

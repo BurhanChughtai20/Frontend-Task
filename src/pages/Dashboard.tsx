@@ -12,6 +12,7 @@ const Dashboard = () => {
   return (
     <>
       <DashboardHeader title="Dashboard" />
+
       <div className="hidden lg:grid lg:grid-cols-3 gap-4 p-4">
         {dashboardCards.map((card, idx) => (
           <DataChart key={idx} {...card} />
@@ -28,10 +29,9 @@ const Dashboard = () => {
         </div>
       </div>
 
-        <div className="container mx-auto py-10"> 
-        <DemoPage/>
+      <div className="container mx-auto py-10">
+        <DemoPage />
       </div>
-
     </>
   )
 }
