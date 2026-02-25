@@ -13,27 +13,21 @@ export type RouteMeta = {
 
 export const routes: readonly RouteMeta[] = [
   {
-    name: "",
+    name: "Home",
     path: "/",
     element: <HomePage />,
     layout: MainLayout,
     showInMenu: true,
   },
   {
-    name: "",
-    path: "/dashboard",
-    element: <DashboardPage />,
-    layout: DashboardLayout,
-    showInMenu: true,
-  },
-  {
-    name: "Get Started",
+    name: "Dashboard",
     path: "/dashboard",
     element: <DashboardPage />,
     layout: DashboardLayout,
     showInMenu: true,
   },
 ] as const
+
 export const navigationRoutes = routes
   .filter((route) => route.showInMenu)
   .map(({ name, path }) => ({ name, path }))
