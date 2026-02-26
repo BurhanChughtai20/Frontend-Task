@@ -1,5 +1,5 @@
 import { type ElementType, type ComponentPropsWithoutRef, Fragment } from "react"
-import type { TextData } from "../types/dynamicText"
+import type { TextData } from "../types/DynamicText"
 
 type DynamicContentData =
   | string

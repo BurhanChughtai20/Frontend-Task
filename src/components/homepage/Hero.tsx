@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import BannerImg from "../../assets/banner.svg";
 import heroContent from "../../data/heroContent.json";
-import DynamicContent from "../DynamicContent";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import TechStackBanner from "./TechStackBanner";
 import { routeMap } from "../../config/routes.config";
+import TechStackBanner from "./TechStackBanner";
+import DynamicContent from "../DynamicContent";
 
 const classes = {
   container:

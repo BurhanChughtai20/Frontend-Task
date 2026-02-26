@@ -3,7 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 import { Twitter } from "lucide-react";
 import type { MarqueeRowProps, Testimonial, TestimonialCardProps } from "../../types/Testimonial.type";
-import DynamicContent from "../DynamicContent";
+import DynamicContent from "../dynamicContent";
 
 const classes = {
   section:

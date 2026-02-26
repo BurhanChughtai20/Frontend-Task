@@ -1,7 +1,7 @@
 import { motion, type Variants, AnimatePresence } from "framer-motion"
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react"
 import type { CardProps, CarouselProps, FeatureCardProps, FeatureItem, GridProps } from "../../types/featureCard.type"
-import DynamicContent from "../DynamicContent"
+import DynamicContent from "../dynamicContent"
 
 const classes = {
   section:        "my-4 md:my-10 w-full",

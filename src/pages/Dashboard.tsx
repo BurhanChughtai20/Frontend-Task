@@ -1,5 +1,5 @@
-import DashboardHeader from "../components/dashboard/DashboardHeader"
-import DemoPage from "../components/dashboard/table/Page"
+import DashboardHeader from "../components/dashboard/dashboardHeader"
+import DemoPage from "../components/dashboard/table/page"
 import { DataChart } from "../shared"
 
 const dashboardCards = [
