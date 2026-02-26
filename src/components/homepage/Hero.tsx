@@ -105,7 +105,7 @@ export function HeroSection() {
             </Button>
           </Link>
 
-          <Link to="https://github.com/your-repo" target="_blank">
+          <Link to="https://github.com/BurhanChughtai20" target="_blank">
             <Button variant="ghost" className="px-6 py-3 cursor-pointer border border-gray-300">
               Github
             </Button>
