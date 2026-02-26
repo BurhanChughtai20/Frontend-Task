@@ -13,35 +13,35 @@ interface DynamicContentProps<T extends ElementType> {
   data?: DynamicContentData
   className?: string
 }
+const defaultClasses: Record<string, string> = {
+  h1:   "text-fluid-h1 font-extrabold text-foreground",
+  h2:   "text-fluid-h2 font-bold text-foreground",
+  h3:   "text-fluid-h3 font-semibold text-foreground",
+  h4:   "text-fluid-h4 font-semibold text-foreground",
+  h5:   "text-fluid-h5 font-medium text-foreground",
+  h6:   "text-fluid-h6 font-medium text-foreground",
+  p:    "text-fluid-p font-normal text-muted-foreground",
+  span: "text-fluid-p font-normal text-muted-foreground inline",
+}
 
 export const DynamicContent = <T extends ElementType = "p">({
   as,
   data,
   className = "",
   ...props
-}: DynamicContentProps<T> & Omit<ComponentPropsWithoutRef<T>, "as" | "children">) => {
+}: DynamicContentProps<T> &
+  Omit<ComponentPropsWithoutRef<T>, "as" | "children">) => {
   const Component = (as || "p") as ElementType
 
   if (!data) return null
 
-  const defaultClasses: Record<string, string> = {
-    h1: "text-4xl font-bold leading-tight text-heading md:text-5xl lg:text-6xl",
-    h2: "text-3xl font-semibold leading-snug text-heading md:text-4xl",
-    h3: "text-2xl font-semibold text-heading md:text-3xl",
-    h4: "text-xl font-medium text-heading md:text-2xl",
-    h5: "text-lg font-medium text-heading",
-    h6: "text-base font-medium text-heading",
-    p: "text-base text-body md:text-lg",
-    span: "inline text-body",
-  }
-
   const tagKey = typeof as === "string" ? as : "p"
-  const baseClass = defaultClasses[tagKey] || "text-base text-body"
+  const baseClass = defaultClasses[tagKey] ?? "text-fluid-p text-muted-foreground"
 
   const items = Array.isArray(data) ? data : [data]
 
   return (
-    <Component className={`${baseClass} ${className}`} {...props}>
+    <Component className={`${baseClass} ${className}`.trim()} {...props}>
       {items.map((item, index) => {
         if (typeof item === "string") {
           return <Fragment key={index}>{item}</Fragment>
@@ -50,9 +50,12 @@ export const DynamicContent = <T extends ElementType = "p">({
         return (
           <span
             key={index}
-            className={`${item.highlight ? "text-primary font-bold" : ""} ${
-              item.className ?? ""
-            }`}
+            className={[
+              item.highlight ? "text-primary font-bold" : "",
+              item.className ?? "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
           >
             {item.text}
           </span>

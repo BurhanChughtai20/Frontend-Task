@@ -5,7 +5,7 @@ type Props = { children: ReactNode };
 
 export default function MainLayout({ children }: Props) {
   return (
-    <div>
+    <div className="max-w-7xl mx-auto relative">
       <Navbar />
       <main>{children}</main>
       <Footer />

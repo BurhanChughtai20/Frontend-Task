@@ -8,18 +8,18 @@ import TechStackBanner from "./TechStackBanner";
 
 const classes = {
   container:
-    "relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center",
-  contentWrapper: "px-4 py-10 md:pt-20",
+    " my-10 flex flex-col items-center justify-center",
+  contentWrapper: "py-10 md:pt-20",
   heading:
     "relative z-10 mx-auto max-w-4xl py-4 text-center text-2xl font-bold md:text-4xl lg:text-7xl bg-gradient-to-r from-black to-gray-400 text-transparent bg-clip-text",
-  headingWord: "mr-2 inline-block text-black",
+  headingWord: " inline-block text-black",
   introContainer:
     "relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal",
   introText: "text-sm sm:text-base text-gray-600",
   statsContainer:
     "relative z-10 py-4 flex flex-wrap items-center justify-center gap-5",
   statsInner: "flex justify-center items-center gap-y-3",
-  statItem: "mx-4 text-center",
+  statItem: "sm:mx-4 text-center",
   statTitle: "text-xs sm:text-sm font-semibold text-gray-600",
   statNumber: "text-sm sm:text-base text-gray-600 font-medium",
   buttonsContainer:
@@ -80,7 +80,7 @@ export function HeroSection() {
             {stats.map((item, index: number) => (
               <div key={index} className={classes.statItem}>
                 <DynamicContent
-                  as="h5"
+                  as="p"
                   className={classes.statTitle}
                   data={item.title}
                 />

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const tw = {
   nav: "fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm",
-  inner: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between",
+  inner: "max-w-7xl mx-auto px-4 h-16 flex items-center justify-between ",
   logo: "flex items-center gap-3 font-semibold text-gray-900 text-[15px] tracking-tight select-none",
   logoBarsWrapper: "flex items-end gap-1",
   desktopNav: "hidden md:flex items-center gap-1",
@@ -38,6 +38,9 @@ export default function Navbar() {
 
   return (
     <header className={tw.nav}>
+      <div>
+        
+      </div>
       <div className={tw.inner}>
         <BrandLogo />
 

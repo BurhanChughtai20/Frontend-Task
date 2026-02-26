@@ -4,7 +4,7 @@ import type { Tool } from "../../types/TechStackBanner.type";
 
 const classes = {
   wrapper:
-    "relative z-10 w-full mt-10 px-4 pb-6",
+    "relative z-10 w-full mt-10 md:pb-10",
   label:
     "text-center text-xs font-medium tracking-widest uppercase text-gray-400 mb-5",
   dividerRow:
