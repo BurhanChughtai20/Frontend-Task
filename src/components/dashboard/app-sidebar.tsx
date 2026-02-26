@@ -13,7 +13,7 @@ import {
   SidebarMenuBadge,
 } from "../ui/sidebar"
 import { sidebarNav, type SidebarNavItem } from "../../config/routes.config"
-import BrandLogo from "../navbar/BrandLogo"
+import BrandLogo from "../brandLogo"
 
 const badgeStyles: Record<NonNullable<SidebarNavItem["badgeVariant"]>, string> = {
   default: "bg-muted text-muted-foreground",

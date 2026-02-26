@@ -1,6 +1,6 @@
 import { motion, type Variants, type Transition } from "framer-motion";
 import { Figma, Atom, FileCode2, Component, Wind } from "lucide-react";
-import type { Tool } from "../../types/TechStackBanner.type";
+import type { Tool } from "../../types/techStackBanner.type";
 
 const classes = {
   wrapper:

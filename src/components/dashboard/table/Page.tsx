@@ -1,10 +1,10 @@
 import { useGetUsersQuery } from "../../../store/api";
-import getColumns from "./getColumns";
+import getColumns from "./get-columns";
 import { useMemo, useState } from "react";
 import { Input } from "../../ui/input";
 import { LucideSearch, Users, SlidersHorizontal, UserCheck } from "lucide-react";
-import { PageSkeleton } from "../../PageSkeleton";
-import DataTable from "./DataTable";
+import { PageSkeleton } from "../../pageSkeleton";
+import DataTable from "./data-table";
 
 const styles = {
   pageGradient: "min-h-screen relative bg-gradient-to-br from-white via-gray-50 to-orange-100",

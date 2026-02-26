@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, LogIn, UserPlus } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import BrandLogo from "./BrandLogo";
-import DesktopNavItem from "./DesktopNavItem";
-import MobileSection from "./MobileSection";
+import BrandLogo from "../brandLogo";
 import { navItems, routeMap } from "../../config/routes.config";
 import type { NavTw } from "../../types/navbar.types";
+import DesktopNavItem from "./desktop-navItem"; 
+import MobileSection from "./mobile-section";
 
 const tw: NavTw = {
   nav: "fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100 shadow-sm",

@@ -1,4 +1,4 @@
-import DashboardHeader from "../components/dashboard/dashboardHeader"
+import DashboardHeader from "../components/dashboard/dashboar-header"
 import DemoPage from "../components/dashboard/table/page"
 import { DataChart } from "../shared"
 

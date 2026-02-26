@@ -2,7 +2,7 @@ import { useRef, useEffect, type FC } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 import { Twitter } from "lucide-react";
-import type { MarqueeRowProps, Testimonial, TestimonialCardProps } from "../../types/Testimonial.type";
+import type { MarqueeRowProps, Testimonial, TestimonialCardProps } from "../../types/testimonial.type";
 import DynamicContent from "../dynamicContent";
 
 const classes = {

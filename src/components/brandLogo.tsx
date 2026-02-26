@@ -1,4 +1,4 @@
-import { BRAND_DATA } from "./navData";
+import { BRAND_DATA } from "./navbar/nav-data";
 
 export default function BrandLogo() {
   const brand = BRAND_DATA[0];

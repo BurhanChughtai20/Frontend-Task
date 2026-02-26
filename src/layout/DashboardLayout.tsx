@@ -1,6 +1,6 @@
 import type { ReactNode } from "react"  
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "../components/ui/sidebar"
-import { AppSidebar } from "../components/dashboard/AppSidebar"
+import { AppSidebar } from "../components/dashboard/app-sidebar"
 
 type Props = { children: ReactNode }
 
