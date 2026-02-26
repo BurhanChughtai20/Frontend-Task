@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import BrandLogo from "./BrandLogo";
 import DesktopNavItem from "./DesktopNavItem";
 import MobileSection from "./MobileSection";
-import { navItems } from "../../config/routes.config";
+import { navItems, routeMap } from "../../config/routes.config";
 import type { NavTw } from "../../types/navbar.types";
 
 const tw: NavTw = {
@@ -18,7 +18,7 @@ const tw: NavTw = {
   signInBtn:
     "flex flex-row items-center gap-2 text-[14px] font-medium text-gray-600 hover:text-gray-900 transition-colors px-3 py-2",
   getStartedBtn:
-    "flex flex-row items-center gap-2 text-[14px] font-semibold bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors",
+    "flex flex-row items-center gap-2 text-[14px] font-semibold bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-900 transition-colors",
   mobilePanel:
     "md:hidden bg-white border-t border-gray-100 px-4 pb-5 pt-2 flex flex-col gap-0.5",
   mobileNavItem:
@@ -50,11 +50,11 @@ export default function Navbar() {
         </nav>
 
         <div className={tw.authGroup}>
-          <Link to="/sign-in" className={tw.signInBtn}>
+          <Link to={routeMap.dashboard} className={tw.signInBtn}>
             <LogIn size={16} />
             Sign in
           </Link>
-          <Link to="/get-started" className={tw.getStartedBtn}>
+          <Link to={routeMap.dashboard} className={tw.getStartedBtn}>
             <UserPlus size={16} />
             Get started
           </Link>

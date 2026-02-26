@@ -4,35 +4,28 @@ import type { CardProps, CarouselProps, FeatureCardProps, FeatureItem, GridProps
 import DynamicContent from "../DynamicContent"
 
 const classes = {
-  section: "my-4 md:my-10 w-full",
-  headingWrapper: "flex items-center justify-center md:justify-start mb-6",
+  section:        "my-4 md:my-10 w-full",
+  headingWrapper: "flex items-center justify-center md:justify-start mb-8",
 
-  carouselRoot: "flex flex-col gap-3",
+  carouselRoot:   "flex flex-col gap-3",
   carouselWindow: "relative overflow-hidden rounded-2xl",
-  dotsWrapper: "flex items-center justify-center gap-2 pt-1",
-  dotBase: "relative h-1.5 overflow-hidden rounded-full transition-all duration-300 cursor-pointer",
-  dotProgress: "absolute inset-0 bg-gray-900 origin-left",
+  dotsWrapper:    "flex items-center justify-center gap-2 pt-2",
+  dotBase:        "relative h-1.5 overflow-hidden rounded-full transition-all duration-300 cursor-pointer",
+  dotProgress:    "absolute inset-0 bg-gray-900 origin-left",
 
-  desktopGrid: "hidden md:flex flex-col gap-3 w-full",
-  desktopRow: "flex gap-3 w-full",
+  desktopGrid:    "hidden md:grid md:grid-cols-2 gap-3 w-full",
 
-  cardShell: "flex flex-col", 
+  cardShell:      "flex flex-col rounded-2xl border border-gray-200 bg-white overflow-hidden group",
 
-  cardInner: "relative flex flex-col h-full p-5 rounded-2xl border border-gray-200/80 overflow-hidden group transition-shadow duration-300 hover:shadow-md",
+  cardTextBlock:  "flex flex-col gap-1 px-5 pt-5 pb-4 shrink-0",
+  cardTitle:      "text-[13.5px] font-semibold text-gray-900 leading-snug",
+  cardDesc:       "text-[11.5px] text-gray-400 leading-relaxed",
 
-  cardTextBlock: "flex flex-col gap-0.5 shrink-0",
-  cardTitle: "text-[13px] font-semibold text-gray-900 leading-snug",
-  cardDesc: "text-[11.5px] text-gray-500 leading-relaxed",
+  cardImageWrap:  "w-full h-[200px] overflow-hidden flex items-center justify-center px-6 pb-5",
+  cardImage:      "w-full h-full object-contain select-none",
 
-  cardImageWrap: "flex-1 min-h-0 flex items-center justify-center mt-3 overflow-hidden",
-  cardImage: "w-full h-full object-contain select-none",
-
-  accentDot: "",
-
-  mobileCardShell: "h-72",
+  mobileCardShell: "flex flex-col rounded-2xl border border-gray-200 bg-white overflow-hidden",
 }
-
-const ROW_HEIGHTS = ["290px", "310px"]
 
 const FEATURES: FeatureItem[] = [
   {
@@ -41,11 +34,10 @@ const FEATURES: FeatureItem[] = [
     description: [
       "Modern, responsive, and accessible landing page elements.",
       "Reusable for any project.",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
     ],
     imageSrc: "/assets/illustration-nd.svg",
     imageAlt: "Sections illustration",
-    desktopFlex: "2",
+    desktopFlex: "1",
   },
   {
     id: "control",
@@ -53,71 +45,67 @@ const FEATURES: FeatureItem[] = [
     description: [
       "Not a component library, fully copy-paste ready.",
       "Adjust layout and styles as needed.",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis, amet!",
     ],
     imageSrc: "/assets/illustration-st.svg",
     imageAlt: "Control illustration",
-    desktopFlex: "3",
+    desktopFlex: "1",
   },
   {
     id: "customize",
-    title: "Fully customizable",
+    title: "Fits right into your stack",
     description: [
       "Easily adjust styles, layouts, and content.",
       "Compatible with your brand design system.",
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
     ],
     imageSrc: "/assets/illustration-rd.svg",
     imageAlt: "Customization illustration",
-    desktopFlex: "2",
+    desktopFlex: "1",
   },
   {
     id: "support",
-    title: "Premium support",
+    title: "Data-agnostic",
     description: [
       "Expert help whenever you need it.",
       "Quick responses and solutions.",
-      "Lorem ipsum dolor sit, amet consectetur.",
     ],
     imageSrc: "/assets/Chart.svg",
     imageAlt: "Support illustration",
-    desktopFlex: "2",
+    desktopFlex: "1",
   },
 ]
 
 const AUTO_SLIDE_INTERVAL_MS = 3200
-const DRAG_THRESHOLD_PX = 50
+const DRAG_THRESHOLD_PX      = 50
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 28 },
+  hidden:  { opacity: 0, y: 24 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.48, ease: "easeOut", delay: i * 0.09 },
+    transition: { duration: 0.46, ease: "easeOut", delay: i * 0.09 },
   }),
 }
 
 const imageHover: Variants = {
-  rest: { scale: 1, y: 0 },
-  hover: { scale: 1.05, y: -5, transition: { duration: 0.32, ease: "easeOut" } },
+  rest:  { scale: 1,    y: 0  },
+  hover: { scale: 1.04, y: -4, transition: { duration: 0.32, ease: "easeOut" } },
 }
 
 const slideVariants = (direction: 1 | -1): Variants => ({
-  enter: { x: direction * 260, opacity: 0 },
+  enter:  { x: direction * 260, opacity: 0 },
   center: { x: 0, opacity: 1, transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } },
-  exit: { x: direction * -260, opacity: 0, transition: { duration: 0.3, ease: "easeIn" } },
+  exit:   { x: direction * -260, opacity: 0, transition: { duration: 0.3, ease: "easeIn" } },
 })
 
-
-const CardContent = ({ item }: { item: FeatureItem }) => (
-  <div className={classes.cardInner}>
-    <span className={classes.accentDot} />
-
+const CardBody = ({ item }: { item: FeatureItem }) => (
+  <>
     <div className={classes.cardTextBlock}>
-      <DynamicContent as="h6" data={item.title} /> 
+      <DynamicContent as="h6" className={classes.cardTitle} data={item.title} />
       {Array.isArray(item.description)
-        ? item.description.map((line, i) => <p key={i} className={classes.cardDesc}>{line}</p>)
-        : <p className={classes.cardDesc}>{item.description as string}</p>}
+        ? item.description.map((line, i) => (
+            <DynamicContent key={i} as="p" className={classes.cardDesc} data={line} />
+          ))
+        : <DynamicContent as="p" className={classes.cardDesc} data={item.description} />}
     </div>
 
     <motion.div
@@ -127,22 +115,25 @@ const CardContent = ({ item }: { item: FeatureItem }) => (
       animate="rest"
       variants={imageHover}
     >
-      <img src={item.imageSrc} alt={item.imageAlt} className={classes.cardImage} draggable={false} />
+      <img
+        src={item.imageSrc}
+        alt={item.imageAlt}
+        className={classes.cardImage}
+        draggable={false}
+      />
     </motion.div>
-  </div>
+  </>
 )
-
 
 const FeatureSingleCard = ({
   item,
   index,
   plain = false,
-  rowIndex = 0,
 }: CardProps & { rowIndex?: number }) => {
   if (plain) {
     return (
       <div className={classes.mobileCardShell}>
-        <CardContent item={item} />
+        <CardBody item={item} />
       </div>
     )
   }
@@ -150,42 +141,43 @@ const FeatureSingleCard = ({
   return (
     <motion.div
       className={classes.cardShell}
-      style={{
-        flex: item.desktopFlex ?? "1",
-        height: ROW_HEIGHTS[rowIndex] ?? ROW_HEIGHTS[0],
-      }}
       custom={index}
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.15 }}
     >
-      <CardContent item={item} />
+      <CardBody item={item} />
     </motion.div>
   )
 }
 
-
 const MobileCarousel = ({ items }: CarouselProps) => {
-  const total = items.length
-  const [current, setCurrent] = useState(0)
-  const [direction, setDirection] = useState<1 | -1>(1)
-  const currentRef = useRef(current)
-  const totalRef = useRef(total)
-  const pauseRef = useRef(false)
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const total                       = items.length
+  const [current, setCurrent]       = useState(0)
+  const [direction, setDirection]   = useState<1 | -1>(1)
+  const currentRef                  = useRef(current)
+  const totalRef                    = useRef(total)
+  const pauseRef                    = useRef(false)
+  const timerRef                    = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  useLayoutEffect(() => { currentRef.current = current; totalRef.current = total })
+  useLayoutEffect(() => {
+    currentRef.current = current
+    totalRef.current   = total
+  })
 
   const navigateRef = useRef((rawNext: number, forceDir?: 1 | -1) => {
-    const t = totalRef.current
+    const t    = totalRef.current
     const next = ((rawNext % t) + t) % t
-    const dir = forceDir ?? (next > currentRef.current ? 1 : -1)
-    setDirection(dir); setCurrent(next); currentRef.current = next
+    const dir  = forceDir ?? (next > currentRef.current ? 1 : -1)
+    setDirection(dir)
+    setCurrent(next)
+    currentRef.current = next
   })
 
   const navigate = useCallback((rawNext: number) => {
-    navigateRef.current(rawNext); pauseRef.current = true
+    navigateRef.current(rawNext)
+    pauseRef.current = true
   }, [])
 
   useEffect(() => {
@@ -198,7 +190,7 @@ const MobileCarousel = ({ items }: CarouselProps) => {
 
   const dragStartX = useRef(0)
   const onDragStart = (_: unknown, info: { point: { x: number } }) => { dragStartX.current = info.point.x }
-  const onDragEnd = (_: unknown, info: { point: { x: number } }) => {
+  const onDragEnd   = (_: unknown, info: { point: { x: number } }) => {
     const delta = dragStartX.current - info.point.x
     if (Math.abs(delta) > DRAG_THRESHOLD_PX) navigate(delta > 0 ? current + 1 : current - 1)
   }
@@ -224,6 +216,7 @@ const MobileCarousel = ({ items }: CarouselProps) => {
           </motion.div>
         </AnimatePresence>
       </div>
+
       <div className={classes.dotsWrapper}>
         {items.map((item, i) => (
           <button
@@ -231,7 +224,10 @@ const MobileCarousel = ({ items }: CarouselProps) => {
             aria-label={`Go to slide ${i + 1}`}
             onClick={() => navigate(i)}
             className={classes.dotBase}
-            style={{ width: i === current ? "1.75rem" : "0.4rem", background: i === current ? "#111" : "#e5e7eb" }}
+            style={{
+              width:      i === current ? "1.75rem" : "0.4rem",
+              background: i === current ? "#111"    : "#e5e7eb",
+            }}
           >
             {i === current && (
               <motion.span
@@ -249,27 +245,29 @@ const MobileCarousel = ({ items }: CarouselProps) => {
   )
 }
 
-
 const DesktopGrid = ({ items }: GridProps) => {
   const rows: FeatureItem[][] = []
   for (let i = 0; i < items.length; i += 2) rows.push(items.slice(i, i + 2))
   let globalIndex = 0
+
   return (
     <div className={classes.desktopGrid}>
-      {rows.map((row, ri) => (
-        <div key={ri} className={classes.desktopRow}>
-          {row.map((item) => (
-            <FeatureSingleCard key={item.id} item={item} index={globalIndex++} rowIndex={ri} />
-          ))}
-        </div>
-      ))}
+      {rows.map((row, ri) =>
+        row.map((item) => (
+          <FeatureSingleCard
+            key={item.id}
+            item={item}
+            index={globalIndex++}
+            rowIndex={ri}
+          />
+        ))
+      )}
     </div>
   )
 }
 
-
 const FeatureCard = ({
-  items = FEATURES,
+  items   = FEATURES,
   heading = "Build a better website, faster.",
 }: FeatureCardProps) => (
   <section className={classes.section}>

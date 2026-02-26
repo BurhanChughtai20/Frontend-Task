@@ -3,6 +3,7 @@ import { motion, useAnimation } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 import { Twitter } from "lucide-react";
 import type { MarqueeRowProps, Testimonial, TestimonialCardProps } from "../../types/Testimonial.type";
+import DynamicContent from "../DynamicContent";
 
 const classes = {
   section:
@@ -265,9 +266,7 @@ const TestimonialsSection: FC = () => (
         <br className="hidden sm:block" />
         {" "}developers across the planet
       </h2>
-      <p className={classes.subheading}>
-        Here&rsquo;s what people are saying about Launch UI
-      </p>
+      <DynamicContent as="p" className={classes.subheading} data={"Here&rsquo;s what people are saying about Launch UI"} />
     </motion.div>
     <div className={classes.rowsWrapper}>
       <MarqueeRow items={ROW_1} direction="left" speed={40} />

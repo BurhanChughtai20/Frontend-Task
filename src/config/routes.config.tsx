@@ -9,19 +9,12 @@ import {
   FileText,
   ChevronDown,
 } from "lucide-react";
-import type { ReactElement, ComponentType } from "react";
 import type { NavItem } from "../types/navbar.types";
+import type { RouteMeta } from "../types/route.type";
 
-export type RouteMeta = {
-  name: string;
-  path: `/${string}` | "/";
-  element: ReactElement;
-  layout?: ComponentType<{ children: ReactElement }>;
-  showInMenu?: boolean;
-};
-
-export const routes: readonly RouteMeta[] = [
+export const routes = [
   {
+    id: "home",
     name: "Home",
     path: "/",
     element: <HomePage />,
@@ -29,17 +22,22 @@ export const routes: readonly RouteMeta[] = [
     showInMenu: true,
   },
   {
+    id: "dashboard",
     name: "Dashboard",
     path: "/dashboard",
     element: <DashboardPage />,
     layout: DashboardLayout,
     showInMenu: true,
   },
-] as const;
+] as const satisfies readonly RouteMeta[];
 
 export const navigationRoutes = routes
   .filter((route) => route.showInMenu)
   .map(({ name, path }) => ({ name, path }));
+
+export const routeMap = Object.fromEntries(
+  routes.map((route) => [route.id, route.path])
+) as Record<(typeof routes)[number]["id"], string>;
 
 export const navItems: NavItem[] = [
   {
@@ -49,26 +47,26 @@ export const navItems: NavItem[] = [
       {
         label: "Introduction",
         description: "What is Launch UI?",
-        href: "/",
+        href: routeMap.home,
         icon: Rocket,
       },
       {
         label: "Installation",
         description: "How to install and set up",
-        href: "/",
+        href: routeMap.home,
         icon: Settings,
       },
       {
         label: "Quick start",
         description: "Build your first component",
-        href: "/",
+        href: routeMap.home,
         separator: true,
         icon: LayoutGrid,
       },
       {
         label: "Changelog",
         description: "What's new in v2.0",
-        href: "/",
+        href: routeMap.home,
         icon: FileText,
       },
     ],
@@ -77,16 +75,16 @@ export const navItems: NavItem[] = [
     label: "Components",
     icon: LayoutGrid,
     dropdown: [
-      { label: "Buttons", href: "/", icon: Rocket },
-      { label: "Cards", href: "/", icon: LayoutGrid },
-      { label: "Navigation", href: "/", icon: Settings },
-      { label: "Forms", href: "/", separator: true, icon: FileText },
-      { label: "All Components →", href: "/", icon: ChevronDown },
+      { label: "Buttons", href: routeMap.home, icon: Rocket },
+      { label: "Cards", href: routeMap.home, icon: LayoutGrid },
+      { label: "Navigation", href: routeMap.home, icon: Settings },
+      { label: "Forms", href: routeMap.home, separator: true, icon: FileText },
+      { label: "All Components →", href: routeMap.home, icon: ChevronDown },
     ],
   },
   {
     label: "Documentation",
-    href: "/",
+    href: routeMap.home,
     icon: BookOpen,
   },
 ];

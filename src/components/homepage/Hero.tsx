@@ -5,6 +5,7 @@ import DynamicContent from "../DynamicContent";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import TechStackBanner from "./TechStackBanner";
+import { routeMap } from "../../config/routes.config";
 
 const classes = {
   container:
@@ -99,7 +100,7 @@ export function HeroSection() {
           transition={{ duration: 0.3, delay: 1.1 }}
           className={classes.buttonsContainer}
         >
-          <Link to="/get-started">
+          <Link to={routeMap.dashboard}>
             <Button variant="default" className="px-6 py-3 cursor-pointer">
               Get Started
             </Button>
