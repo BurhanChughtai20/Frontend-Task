@@ -4,6 +4,7 @@ import heroContent from "../../data/heroContent.json";
 import DynamicContent from "../DynamicContent";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
+import TechStackBanner from "./TechStackBanner";
 
 const classes = {
   container:
@@ -124,6 +125,7 @@ export function HeroSection() {
             />
           </div>
         </motion.div>
+        <TechStackBanner/>
       </div>
     </div>
   );
