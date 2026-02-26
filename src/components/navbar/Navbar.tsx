@@ -28,7 +28,7 @@ const tw: NavTw = {
   mobileSignIn:
     "flex flex-row items-center justify-center gap-2 w-full px-4 py-2.5 rounded-md text-[14px] font-medium text-gray-700 border border-gray-200 hover:bg-gray-50 transition-colors",
   mobileGetStarted:
-    "flex flex-row items-center justify-center gap-2 w-full px-4 py-2.5 rounded-md text-[14px] font-semibold bg-black text-white hover:bg-gray-700 transition-colors",
+    "flex flex-row items-center justify-center gap-2 w-full px-4 py-2.5 rounded-md text-[14px] font-semibold bg-black text-white hover:bg-gray-900 transition-colors",
   navItemBase:
     "flex flex-row items-center gap-1.5 px-3 py-2 rounded-md text-[14px] font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-900 transition-colors cursor-pointer select-none",
 };
@@ -96,11 +96,11 @@ export default function Navbar() {
             <div className={tw.mobileDivider} />
 
             <div className={tw.mobileAuthGroup}>
-              <Link to="/sign-in" className={tw.mobileSignIn} onClick={closeMobile}>
+              <Link to={routeMap.dashboard} className={tw.mobileSignIn} onClick={closeMobile}>
                 <LogIn size={16} />
                 Sign in
               </Link>
-              <Link to="/get-started" className={tw.mobileGetStarted} onClick={closeMobile}>
+              <Link to={routeMap.dashboard} className={tw.mobileGetStarted} onClick={closeMobile}>
                 <UserPlus size={16} />
                 Get started
               </Link>

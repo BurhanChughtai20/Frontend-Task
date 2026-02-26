@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import type { MobileSectionProps } from "../../types/navbar.types";
+import { Button } from "../ui/button";
 
 const MobileSection: FC<MobileSectionProps> = ({ item, tw, onClose }) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -25,8 +26,9 @@ const MobileSection: FC<MobileSectionProps> = ({ item, tw, onClose }) => {
 
   return (
     <div>
-      <button
+      <Button
         type="button"
+        variant="ghost"
         onClick={() => setOpen((v) => !v)}
         className={`${tw.mobileNavItem} w-full justify-between`}
         aria-expanded={open}
@@ -42,7 +44,7 @@ const MobileSection: FC<MobileSectionProps> = ({ item, tw, onClose }) => {
         >
           <ChevronDown size={14} className="text-gray-400" />
         </motion.span>
-      </button>
+      </Button>
 
       <AnimatePresence initial={false}>
         {open && (

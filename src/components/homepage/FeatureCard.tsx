@@ -12,18 +12,15 @@ const classes = {
   dotsWrapper:    "flex items-center justify-center gap-2 pt-2",
   dotBase:        "relative h-1.5 overflow-hidden rounded-full transition-all duration-300 cursor-pointer",
   dotProgress:    "absolute inset-0 bg-gray-900 origin-left",
-
   desktopGrid:    "hidden md:grid md:grid-cols-2 gap-3 w-full",
-
-  cardShell:      "flex flex-col rounded-2xl border border-gray-200 bg-white overflow-hidden group",
-
+  cardShell:
+  "relative flex flex-col rounded-2xl border border-gray-200 bg-white overflow-hidden group shadow-[0_-10px_15px_-3px_rgba(253,186,116,0.5)]",
   cardTextBlock:  "flex flex-col gap-1 px-5 pt-5 pb-4 shrink-0",
   cardTitle:      "text-[13.5px] font-semibold text-gray-900 leading-snug",
   cardDesc:       "text-[11.5px] text-gray-400 leading-relaxed",
 
   cardImageWrap:  "w-full h-[200px] overflow-hidden flex items-center justify-center px-6 pb-5",
   cardImage:      "w-full h-full object-contain select-none",
-
   mobileCardShell: "flex flex-col rounded-2xl border border-gray-200 bg-white overflow-hidden",
 }
 
