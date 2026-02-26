@@ -1,6 +1,6 @@
 import { motion, type Variants, AnimatePresence } from "framer-motion"
 import { useEffect, useLayoutEffect, useRef, useState, useCallback } from "react"
-import type { CardProps, CarouselProps, FeatureCardProps, FeatureItem, GridProps } from "../../types/featureCard.type"
+import type { CardProps, CarouselProps, FeatureCardProps, FeatureItem, GridProps } from "../../types/feature-card.type"
 import DynamicContent from "../dynamic-content"
 
 const classes = {
