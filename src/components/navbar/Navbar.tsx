@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, LogIn, UserPlus } from "lucide-react";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
-import BrandLogo from "../brandLogo";
+import BrandLogo from "../brand-logo";
 import { navItems, routeMap } from "../../config/routes.config";
 import type { NavTw } from "../../types/navbar.types";
 import DesktopNavItem from "./desktop-navItem"; 

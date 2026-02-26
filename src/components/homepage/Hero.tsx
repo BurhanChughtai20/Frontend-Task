@@ -4,7 +4,7 @@ import heroContent from "../../data/heroContent.json";
 import { Button } from "../ui/button";
 import { Link } from "react-router-dom";
 import { routeMap } from "../../config/routes.config"; 
-import DynamicContent from "../dynamicContent";
+import DynamicContent from "../dynamic-content";
 import TechStackBanner from "./tech-stack-banner";
 
 const classes = {

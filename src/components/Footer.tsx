@@ -1,7 +1,7 @@
 import { motion, type Variants, type Transition } from "framer-motion";
 import { Facebook, Send, Instagram, Figma } from "lucide-react";
 import type { BrandInfo, FooterBottom, FooterColumn, SocialItem } from "../types/footer";
-import DynamicContent from "./dynamicContent";
+import DynamicContent from "./dynamic-content";
 
 const BRAND_DATA: BrandInfo[] = [
   {

@@ -3,7 +3,7 @@ import getColumns from "./get-columns";
 import { useMemo, useState } from "react";
 import { Input } from "../../ui/input";
 import { LucideSearch, Users, SlidersHorizontal, UserCheck } from "lucide-react";
-import { PageSkeleton } from "../../pageSkeleton";
+import { PageSkeleton } from "../../page-skeleton";
 import DataTable from "./data-table";
 
 const styles = {
