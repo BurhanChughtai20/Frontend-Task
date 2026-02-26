@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const classes = {
-  container: "relative w-full py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden transition-colors duration-300",
+  container: "relative w-full py-12 sm:py-16 md:py-20 overflow-hidden transition-colors duration-300",
   backgroundSvg: "absolute top-0 left-0 w-full h-full hidden md:block opacity-30",
   floatingOrb1: "absolute top-10 left-10 w-32 h-32 rounded-full bg-blue-500 blur-3xl opacity-20",
   floatingOrb2: "absolute bottom-20 right-10 w-40 h-40 rounded-full bg-purple-500 blur-3xl opacity-20",

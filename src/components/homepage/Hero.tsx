@@ -1,29 +1,32 @@
 import { motion } from "framer-motion";
 import BannerImg from "../../assets/banner.svg";
-import { UtensilsCrossed } from "lucide-react";
 import heroContent from "../../data/heroContent.json";
 import DynamicContent from "../DynamicContent";
+import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
 
 const classes = {
-  container: "relative mx-auto my-10 flex  max-w-7xl flex-col items-center justify-center",
- 
-  contentWrapper: "px-4 py-10 md:py-20",
+  container:
+    "relative mx-auto my-10 flex max-w-7xl flex-col items-center justify-center",
+  contentWrapper: "px-4 py-10 md:pt-20",
   heading:
-    "relative z-10 mx-auto max-w-4xl py-4 text-center text-2xl font-bold text-balance md:text-4xl lg:text-7xl",
-  headingWord: "mr-2 inline-block",
+    "relative z-10 mx-auto max-w-4xl py-4 text-center text-2xl font-bold md:text-4xl lg:text-7xl bg-gradient-to-r from-black to-gray-400 text-transparent bg-clip-text",
+  headingWord: "mr-2 inline-block text-black",
   introContainer:
     "relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal",
-  introText: "text-sm sm:text-base md:text-lg ",
+  introText: "text-sm sm:text-base text-gray-600",
   statsContainer:
     "relative z-10 py-4 flex flex-wrap items-center justify-center gap-5",
   statsInner: "flex justify-center items-center gap-y-3",
   statItem: "mx-4 text-center",
-  statTitle: "text-xs sm:text-sm md:text-base font-semibold",
-  statNumber: "text-sm sm:text-base md:text-lg font-medium",
-  imageContainer: "relative z-10 mt-10 rounded-3xl border p-4 shadow-md",
+  statTitle: "text-xs sm:text-sm font-semibold text-gray-600",
+  statNumber: "text-sm sm:text-base text-gray-600 font-medium",
+  buttonsContainer:
+    "flex flex-col sm:flex-row gap-4 justify-center items-center my-6",
+  imageContainer:
+    "relative z-10 mt-10 rounded-3xl border p-4 shadow-[0_-10px_15px_-3px_rgba(253,186,116,0.5)]",
   imageWrapper: "w-full overflow-hidden rounded-xl border",
   image: "aspect-video h-auto w-full object-cover",
-  iconContainer: "flex items-center justify-center mt-10",
 };
 
 export function HeroSection() {
@@ -89,11 +92,28 @@ export function HeroSection() {
             ))}
           </div>
         </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 1.1 }}
+          className={classes.buttonsContainer}
+        >
+          <Link to="/get-started">
+            <Button variant="default" className="px-6 py-3 cursor-pointer">
+              Get Started
+            </Button>
+          </Link>
 
+          <Link to="https://github.com/your-repo" target="_blank">
+            <Button variant="ghost" className="px-6 py-3 cursor-pointer border border-gray-300">
+              Github
+            </Button>
+          </Link>
+        </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3, delay: 1.2 }}
+          transition={{ duration: 0.3, delay: 1.3 }}
           className={classes.imageContainer}
         >
           <div className={classes.imageWrapper}>
@@ -104,10 +124,6 @@ export function HeroSection() {
             />
           </div>
         </motion.div>
-
-        <div className={classes.iconContainer}>
-          <UtensilsCrossed className="w-6 h-6 text-black" strokeWidth={2.5} />
-        </div>
       </div>
     </div>
   );
