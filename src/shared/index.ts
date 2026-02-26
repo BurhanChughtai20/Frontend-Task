@@ -15,6 +15,10 @@ export const tablePage = lazy(
   () => import("../components/dashboard/table/Page"),
 );
 
+export const TestimonialsSection = lazy(
+  () => import("../components/homepage/TestimonialCard"),
+);
+
 export { default as Navbar } from "../components/navbar/Navbar";
 export { default as HeroSection } from "../components/homepage/Hero";
 export { default as Footer } from "../components/Footer";

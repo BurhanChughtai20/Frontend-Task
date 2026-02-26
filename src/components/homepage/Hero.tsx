@@ -11,7 +11,7 @@ const classes = {
     " my-10 flex flex-col items-center justify-center",
   contentWrapper: "py-10 md:pt-20",
   heading:
-    "relative z-10 mx-auto max-w-4xl py-4 text-center text-2xl font-bold md:text-4xl lg:text-7xl bg-gradient-to-r from-black to-gray-400 text-transparent bg-clip-text",
+    "relative z-10 mx-auto max-w-4xl py-4 text-center text-2xl font-bold md:text-4xl lg:text-7xl bg-gradient-to-r from-black to-gray-400 text-transparent bg-clip-text leading-tight tracking-tight",
   headingWord: " inline-block text-black",
   introContainer:
     "relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal",
