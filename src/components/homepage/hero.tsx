@@ -24,7 +24,7 @@ const classes = {
   statTitle: "text-xs sm:text-sm font-semibold text-gray-600",
   statNumber: "text-sm sm:text-base text-gray-600 font-medium",
   buttonsContainer:
-    "flex flex-col sm:flex-row gap-4 justify-center items-center my-6",
+    "flex flex-row sm:flex-row gap-4 justify-center items-center my-6",
   imageContainer:
     "relative z-10 mt-10 rounded-3xl border p-4 shadow-[0_-10px_15px_-3px_rgba(253,186,116,0.5)]",
   imageWrapper: "w-full overflow-hidden rounded-xl border",
